@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+#include "Recursion.h"
+using namespace std;
+
+
+int main()
+{
+	Recursion x;
+	
+	int array[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+	int length = sizeof(array) / sizeof(array[0]); // size of total array divided by size of one element in array to find size
+	
+	cout << "Sum of Array: ";
+	cout << x.sumArray(array, length) << endl;
+	
+	cout << "Sum of integers from 1 to n: ";
+	cout << x.sumInteger(20) << endl;
+	
+	string y = "Reverse a String";
+	int size = y.length();
+	
+	cout << "Reverse a String: ";
+	cout << x.reverseString(y, size) << endl;
+	
+	cout << "Greatest common divisor(80 , 120): ";
+	cout << x.gcDivisor(80, 120) << endl;
+	
+	cout << "Greatest common divisor(120 , 80): ";
+	cout << x.gcDivisor(120, 80) << endl;
+	
+	cout << "Greatest common divisor(0 , 20): ";
+	cout << x.gcDivisor(0, 20) << endl;
+	
+		cout << "Greatest common divisor(20 , 20): ";
+	cout << x.gcDivisor(20, 20) << endl;
+	
+	return 0;
+}
