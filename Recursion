@@ -1,0 +1,83 @@
+#include <iostream>
+#include <string>
+#ifndef Recursion_H
+#define Recursion_H
+using namespace std;
+
+	class Recursion
+	{
+		public:
+			
+			int sumArray(int array[], int pos) // Function: add array elements
+			{
+				if(pos == 0) // Anchor
+				{
+					return 0;
+				}
+				// Recursion: Array postion -1 plus function passing the array
+				//and the position - 1 back to function until position equals 0
+				else     
+				{    
+					return (array[pos-1] + sumArray(array, pos-1));
+				}
+			}
+			
+			int sumInteger(int x) //Function: add integer numbers from given number down to 1
+			{
+				if(x == 1)
+				{
+					return 1; //Anchor
+				}
+				else //Recursion: Integer plus function passing the integer - 1 until integer equals 1
+				{
+					return (x + sumInteger(x - 1));
+				}
+			}
+			
+			string reverseString(string x, int length) //Function: reverse passed string
+			{
+				if(length == 0) //Anchor
+				{
+					return "";
+				}
+				//Recursion: position in string set at length -1 
+				//plus function passing the string and length -1 utnil length equals 0
+				else
+				{
+					return (x[length -1] + reverseString(x, length-1));
+				}
+			}
+			
+			// Found this in my introduction to algorithms 3rd edition book by by Thomas H. Cormen,  
+			//Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein on pg 933, Euclid's algorithm
+			int gcDivisor(int x, int y) // Function: Find greatest common divisor between two integers
+			{
+				if(y == 0) //Anchor: if y equals 0 return value in x
+				{
+					return x;
+				}
+				if(x == 0) //Anchor: if x equals 0 return value in y
+				{
+					return y;
+				}
+				else if(x == y) //Anchor: if x equals y return value of x
+				{
+					return x;
+				}
+				//Recursion: if x is greater than y pass x mod y and 
+				//lowest value integer(y) back to function until x or y equals 0 or x is equal to y
+				else if(x > y) 
+				{
+					return gcDivisor(x%y, y);
+				}
+				//Recursion: if x is less than y pass lowest value integer(x) and 
+				//y mod x back to function until x or y equals 0 or x is equal to y
+				else if(x < y) 
+				{
+					return gcDivisor(x, y%x);
+				}
+			}
+		
+	};
+
+#endif	
